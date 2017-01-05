@@ -15,3 +15,11 @@ You need to add billing information to your account to save data. We are creatin
 ````
 $ bq query --destination_table "test.soquestions" --replace  < join.sql
 ````
+
+# Building Sankey diagrams
+
+````
+bq query -n 10000 --format csv  < devjourney.sql | grep -v tag  | grep -v "between" | sed -e "s/\(.*\),before,\(.*\).*/+\1 \[\2\] cordova/" | sed -e "s/\(.*\),after,\(.*\).*/cordova \[\2\] -\1/" | pbcopy
+````
+
+Then copy the result into Sankeymatic.
