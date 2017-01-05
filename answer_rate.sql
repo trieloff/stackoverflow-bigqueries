@@ -213,7 +213,7 @@ SELECT
   IF(SUM(IF(Xmp > 0, 1, 0)) = 0, NULL, SUM(IF ((Xmp > 0) AND (OneDay), 1, 0)) / SUM(IF(Xmp > 0, 1, 0)))  As XmpOneDayAnswerRate,
   IF(SUM(IF(Xmp > 0, 1, 0)) = 0, NULL, SUM(IF ((Xmp > 0) AND (OneWeek), 1, 0)) / SUM(IF(Xmp > 0, 1, 0)))  As XmpOneWeekAnswerRate,
   AVG(IF(Xmp > 0, DelayMin, NULL)) AS XmpDelayMin,
-  AVG(IF(Xmp > 0, DelayMax, NULL)) AS XmpDelayMax,
+  AVG(IF(Xmp > 0, DelayMax, NULL)) AS XmpDelayMax
   
   
   
