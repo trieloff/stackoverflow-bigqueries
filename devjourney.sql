@@ -23,7 +23,7 @@ FROM (
     FROM 
       `bigquery-public-data.stackoverflow.posts_questions`
     WHERE
-      (REGEXP_CONTAINS(tags, "(^|\\|)aem($|\\|)") OR REGEXP_CONTAINS(tags, "(^|\\|)cq5($|\\|)")) AND owner_user_id > 0
+      (REGEXP_CONTAINS(tags, "(^|\\|)phonegap($|\\|)") OR REGEXP_CONTAINS(tags, "(^|\\|)cordova($|\\|)")) AND owner_user_id > 0
     GROUP BY
       owner_user_id
     ORDER BY
@@ -31,13 +31,13 @@ FROM (
   ON
     (sopq.owner_user_id = cordova.owner)
   WHERE
-    last_question_date IS NOT NULL AND NOT (REGEXP_CONTAINS(tags, "(^|\\|)aem($|\\|)")) OR REGEXP_CONTAINS(tags, "(^|\\|)cq5($|\\|)"))  AS r
+    last_question_date IS NOT NULL AND NOT (REGEXP_CONTAINS(tags, "(^|\\|)phonegap($|\\|)")) OR REGEXP_CONTAINS(tags, "(^|\\|)cordova($|\\|)"))  AS r
 LEFT JOIN
   r.tag
 GROUP BY
   period, tag
 HAVING
-  people > 100
+  people > 5000
 ORDER BY
   tag ASC,
   period ASC,
