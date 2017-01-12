@@ -1,6 +1,7 @@
 #standardSQL
 SELECT
   author,
+  LOWER(author) AS shahash,
   PERCENT_RANK() OVER (ORDER BY commits DESC) AS crank,
   PERCENT_RANK() OVER (ORDER BY repos DESC) AS rrank,
   repos,
@@ -19,7 +20,9 @@ FROM (
     EXTRACT(YEAR FROM author.date) = 2016
   GROUP BY
     author)
+JOIN
+  `test.lowercase`
+ON
+  LOWER(author) = name
 ORDER BY
-  orank ASC
-LIMIT
-10000
+orank ASC
