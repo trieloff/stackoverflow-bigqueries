@@ -13,6 +13,7 @@ FROM
 GROUP BY
   word
 HAVING
-  word NOT IN ("this", "which", "", "it", "that", "and", "one", "what", "but", "really", "there", "he", "thing", "whatever", "1", "2", "who", "us","itself","else","or","exactly","way","wich","where","whichever","usually","used","two","thus","these","therefore","them","still","sometimes","other","on","once","neither")
+  word NOT IN ("this", "which", "", "it", "that", "and", "one", "what", "but", "really", "there", "he", "thing", "whatever", "1", "2", "who", "us","itself","else","or","exactly","way","wich","where","whichever","usually","used","two","thus","these","therefore","them","still","sometimes","other","on","once","neither") AND
+  word in ("jira", "trello")
 ORDER BY
 word ASC
