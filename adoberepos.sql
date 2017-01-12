@@ -265,6 +265,7 @@ SELECT org, SUM(stars) AS stars, SUM(pushes) AS pushes, SUM(forks) AS forks, pna
       "https://api.github.com/repos/apache/jackrabbit",
       "https://api.github.com/repos/apache/jackrabbit-oak",
       "https://api.github.com/repos/apache/oltu",
+      "https://api.github.com/repos/apache/sling",
       "https://api.github.com/repos/openwhisk/openwhisk",
       "https://api.github.com/repos/phonegap/ios-deploy",
       "https://api.github.com/repos/phonegap/ios-sim",
